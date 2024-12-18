@@ -1,13 +1,17 @@
-#import requests library for API requests
-import requests
 #import pandas library for data manipulation
 import pandas as pd
 
-response = requests.get("https://api.spacexdata.com/v4/launches")
-data = response.json()
+#url for pandas to access api
+url = "https://api.spacexdata.com/v4/launches"
 
-#convert dataset into dataframe
-df = pd.DataFrame(data)
+#create dataframe from api return values
+df = pd.read_json(url)
 
 #print dataframe
-print(df[:5])
+#print(df.head())
+
+#print list of column names
+#print(df.columns)
+
+#print list of data types
+print(df.dtypes)
